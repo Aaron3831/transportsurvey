@@ -1,19 +1,18 @@
 $(document).ready(function() {
-  $("form#count").submit(function(event) {
-    var countMax = parseInt($("input#countMax").val());
-    var countBy = parseInt($("input#countBy").val());
-    var text = "";
-    var index;
-
-      for (var index = 0; index <= countMax; index += countBy) {
-        text += "The number is " + index + "<br>";
-      }
-      // $("result").empty().append(index);
-      document.getElementById("result").innerHTML = text;
-
-
+  $("form#transport-survey").submit(function(event) {
       event.preventDefault();
+      $("#replies").show();
+      $("input:checkbox[name=work-transportation]:checked").each(function() {
 
+        var transportWork = $(this).val();
+        $("#replies").append(transportWork + "<br>");
 
+      });
+      $("#funReplies").show();
+      $("input:checkbox[name=fun-transportation]:checked").each(function() {
+        var transportFun = $(this).val();
+        $("#funReplies").append(transportFun + "<br>");
+      });
+      $('#transport-survey').hide();
   });
 });
